@@ -1,56 +1,68 @@
 # Data-analysis-platform
 A simple data analysis platform with visual and machine learning features
 
-目录  
-第一部分：构建背景  
-第二部分：架构图  
-第三部分：使用工具  
-第四部分：实现功能  
-1.可视化  
-2.机器学习  
+Table of Contents  
+Part 1: Background  
+Part II: Architecture  
+Part III: Tools  
+Part IV: Functions  
+1. Data source display
+2.Visualization  
+3. Machine learning  
   
   
-第一部分：构建背景 
-发展趋势：大数据已经为目前发展的趋势，各行各业都会涌现大量的数据，如何利用和发掘这些数据的价值成为关键。  
-国内发展情况：目前国内涌现出了不少数据分析平台产品，产品的目标是BI，利用可视化提供数据探索的功能，并且加入机器学习和预测的功能。  
+Part 1: Background  
+Trends: Big data has become a trend, and a large amount of data will emerge in all walks of life. How to use and explore the value of these data becomes the key.  
+Domestic development: At present, a number of data analysis platform products have emerged in China. The goal of the product is BI, which provides visualization of data exploration functions and incorporates machine learning and prediction functions.  
   
   
-第二部分：架构图  
+Part II: Architecture  
 
 
-第三部分：使用工具  
-1.客户端  
-bootstrap   前端框架，基于 HTML、CSS、JAVASCRIPT 
-requirejs     JS 依赖管理
-jquery         JavaScript 库
-reactjs         UI框架，基于组件（component）
-d3js              JavaScript的函数库，用来做数据可视化
-echarts        JavaScript的函数库，用来做数据可视化
+Part III: Tools    
+1.Client  
+bootstrap：Front frame, based on HTML, CSS, JAVASCRIPT
+requirejs：JS dependency management
+jquery：JavaScript library
+reactjs：UI framework, based on components
+d3js：JavaScript function library for data visualization
+echarts：JavaScript function library for data visualization
 
-2.服务器  
-flask        Python Web框架
-pandas   Python数据结构和数据分析工具包，提供数据处理的功能
-sklearn   Python机器学习包，依赖于numpy，scipy和matplotlib
+2.Server 
+flask        Python web framework
+pandas   Python data structure and data analysis toolkit for data processing
+sklearn   Python machine learning package, dependent on numpy, scipy, and matplotlib
 
-3.开发工具
-nodejs     服务端JavaScript环境
-babel       javascript的编译器，支持代码转换成浏览器可执行的代码
+Part III: Tools 
+nodejs     Server JavaScript environment
+babel       Javascript compiler that supports transforming code into browser executable code
 
 
-第四部分：实现功能  
+Part IV: Functions 
 
-1.数据源展示
-可添加简单的数据文件
-可自定义每页显示数据记录行数
-可搜索数据
+1. Data source display
+Can add simple data files
+Can customize display of data record lines per page
+Can search data
 
-2.可视化  
-可以选择的可视化图形类型有6种：折线图、柱状图、饼状图、树状图、散点图、区域图
-可快捷切换到数据视图、折线图切换、柱状图切换、堆积图、平铺图
-可以动态获取数据点
-可还原、储存可视化后的结果图
+2.Visualization  
+There are 6 types of visual graphics that can be selected: line chart, bar chart, pie chart, tree chart, scatter chart, area chart
+Quickly switch to data view, line chart, bar chart, stacked chart, tile chart
+Can dynamically get data points
+Store and restore the visualized result graph
 
-2.机器学习  
+3. Machine learning  
+1)Classification model  
+Classification models have KNN, Bayes, SVM  
+
+
+2)Clustering model
+The clustering model has KMeans  
+
+3)Regression model
+Regression models have linear regression and logistic regression
+
+
 
 
 
