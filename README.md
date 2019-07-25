@@ -1,5 +1,8 @@
 # Data-analysis-platform
-A simple data analysis platform with visual and machine learning features  
+* A simple data analysis platform with visual and machine learning features  
+  
+  
+  
 ![](ResaultPic/main.png)
   
   
@@ -10,7 +13,7 @@ A simple data analysis platform with visual and machine learning features
 #### Part III: Tools  
 #### Part IV: Functions  
 &emsp; 1. Data source display  
-&emsp; 2.Visualization  
+&emsp; 2. Visualization  
 &emsp; 3. Machine learning  
   
   
@@ -73,25 +76,29 @@ Domestic development: At present, a number of data analysis platform products ha
   
   
   
-> 1)Classification model  
-** Classification models have KNN, Bayes, SVM  **
+### 1) Classification model  
+### Classification models have KNN, Bayes, SVM  
   
   
   
 ![](ResaultPic/ml-CLS.png)
-** KNN  **
+### KNN  
   
   
   
 ![](ResaultPic/ml-KNN-viz.png)
-![](ResaultPic/ml-KNN-pre.png)
-** Bayes  **
+![](ResaultPic/ml-KNN-pre.png)  
+  
+  
+###  Bayes  
   
   
   
 ![](ResaultPic/ml-Bayes-viz.png)
-![](ResaultPic/ml-Bayes-pre.png)
-** SVM  **
+![](ResaultPic/ml-Bayes-pre.png)  
+  
+  
+###  SVM  
   
   
   
@@ -99,14 +106,14 @@ Domestic development: At present, a number of data analysis platform products ha
 ![](ResaultPic/ml-SVM-pre.png)
 
 
-> 2)Clustering model  
-** The clustering model has KMeans    **
+###  2) Clustering model  
+###  The clustering model has KMeans    
   
   
   
 ![](ResaultPic/ml-CLU.png)
   
-** KMeans  **
+###  KMeans  
   
   
   
@@ -114,8 +121,8 @@ Domestic development: At present, a number of data analysis platform products ha
 ![](ResaultPic/ml-KMeans-pre.png)
 
 
-> 3)Regression model  
-** Regression models have linear regression and logistic regression  **
+###  3) Regression model  
+###  Regression models have linear regression and logistic regression  
   
   
   
@@ -123,14 +130,14 @@ Domestic development: At present, a number of data analysis platform products ha
   
   
   
-** linear **  
+###  linear 
   
 ![](ResaultPic/ml-linear-viz.png)
 ![](ResaultPic/ml-linear-pre.png)  
   
   
   
-** logistic **  
+###  logistic 
 
 ![](ResaultPic/ml-logistic-viz.png)
 ![](ResaultPic/ml-logistic-pre.png)
