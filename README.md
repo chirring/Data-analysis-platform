@@ -1,12 +1,15 @@
 # Data-analysis-platform
 A simple data analysis platform with visual and machine learning features  
 ![](ResaultPic/main.png)
+  
+  
+  
 ## Table of Contents  
 #### Part 1: Background  
 #### Part II: Architecture  
 #### Part III: Tools  
 #### Part IV: Functions  
-&emsp;&emsp; 1. Data source display
+&emsp;&emsp; 1. Data source display  
 &emsp;&emsp; 2.Visualization  
 &emsp;&emsp; 3. Machine learning  
   
@@ -37,7 +40,7 @@ Domestic development: At present, a number of data analysis platform products ha
 * pandas:Python data structure and data analysis toolkit for data processing  
 * sklearn:Python machine learning package, dependent on numpy, scipy, and matplotlib  
 
-## Part III: Tools 
+### 3.Development tools
 * nodejs:Server JavaScript environment  
 * babel:Javascript compiler that supports transforming code into browser executable code  
 
