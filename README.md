@@ -1,14 +1,14 @@
 # Data-analysis-platform
 A simple data analysis platform with visual and machine learning features  
-
+![](ResaultPic/main.png)
 ## Table of Contents  
-### Part 1: Background  
-### Part II: Architecture  
-### Part III: Tools  
-### Part IV: Functions  
-##### 1. Data source display
-##### 2.Visualization  
-##### 3. Machine learning  
+#### Part 1: Background  
+#### Part II: Architecture  
+#### Part III: Tools  
+#### Part IV: Functions  
+&emsp;&emsp; 1. Data source display
+&emsp;&emsp; 2.Visualization  
+&emsp;&emsp; 3. Machine learning  
   
   
 ## Part 1: Background  
@@ -17,6 +17,7 @@ Domestic development: At present, a number of data analysis platform products ha
   
   
 ## Part II: Architecture  
+![](ResaultPic/Architecture.png)
 
 
 ## Part III: Tools    
@@ -27,7 +28,10 @@ Domestic development: At present, a number of data analysis platform products ha
 * reactjs：UI framework, based on components  
 * d3js：JavaScript function library for data visualization  
 * echarts：JavaScript function library for data visualization  
-
+  
+    
+![](ResaultPic/Client.png)
+  
 ### 2.Server 
 * flask:Python web framework  
 * pandas:Python data structure and data analysis toolkit for data processing  
@@ -44,6 +48,9 @@ Domestic development: At present, a number of data analysis platform products ha
 * Can add simple data files  
 * Can customize display of data record lines per page  
 * Can search data  
+  
+  
+  
 ![](ResaultPic/data.png)
 
 ### 2.Visualization  
@@ -51,6 +58,9 @@ Domestic development: At present, a number of data analysis platform products ha
 * Quickly switch to data view, line chart, bar chart, stacked chart, tile chart  
 * Can dynamically get data points  
 * Store and restore the visualized result graph    
+  
+  
+  
 ![](ResaultPic/viz1.png)
 ![](ResaultPic/viz2.png)
 ![](ResaultPic/viz3.png)
@@ -60,22 +70,41 @@ Domestic development: At present, a number of data analysis platform products ha
 ![](ResaultPic/ml.png)
 1)Classification model  
 * Classification models have KNN, Bayes, SVM  
+  
+  
+  
 ![](ResaultPic/ml-CLS.png)
-* KNN
+* KNN  
+  
+  
+  
 ![](ResaultPic/ml-KNN-viz.png)
 ![](ResaultPic/ml-KNN-pre.png)
-* Bayes
+* Bayes  
+  
+  
+  
 ![](ResaultPic/ml-Bayes-viz.png)
 ![](ResaultPic/ml-Bayes-pre.png)
-* SVM
+* SVM  
+  
+  
+  
 ![](ResaultPic/ml-SVM-viz.png)
 ![](ResaultPic/ml-SVM-pre.png)
 
 
 2)Clustering model  
 * The clustering model has KMeans    
+  
+  
+  
 ![](ResaultPic/ml-CLU.png)
-* KMeans
+  
+* KMeans  
+  
+  
+  
 ![](ResaultPic/ml-KMeans-viz.png)
 ![](ResaultPic/ml-KMeans-pre.png)
 
