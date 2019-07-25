@@ -29,13 +29,13 @@ d3js：JavaScript function library for data visualization
 echarts：JavaScript function library for data visualization
 
 2.Server 
-flask        Python web framework
-pandas   Python data structure and data analysis toolkit for data processing
-sklearn   Python machine learning package, dependent on numpy, scipy, and matplotlib
+flask:Python web framework
+pandas:Python data structure and data analysis toolkit for data processing
+sklearn:Python machine learning package, dependent on numpy, scipy, and matplotlib
 
 Part III: Tools 
-nodejs     Server JavaScript environment
-babel       Javascript compiler that supports transforming code into browser executable code
+nodejs:Server JavaScript environment
+babel:Javascript compiler that supports transforming code into browser executable code
 
 
 Part IV: Functions 
@@ -44,6 +44,7 @@ Part IV: Functions
 Can add simple data files
 Can customize display of data record lines per page
 Can search data
+![](ResaultPic/data.png)
 
 2.Visualization  
 There are 6 types of visual graphics that can be selected: line chart, bar chart, pie chart, tree chart, scatter chart, area chart
