@@ -18,8 +18,9 @@
   
   
 ## Part 1: Background  
-Trends: Big data has become a trend, and a large amount of data will emerge in all walks of life. How to use and explore the value of these data becomes the key.  
-Domestic development: At present, a number of data analysis platform products have emerged in China. The goal of the product is BI, which provides visualization of data exploration functions and incorporates machine learning and prediction functions.  
+The product's goal is BI, which provides data exploration and visualization, and integrates machine learning and prediction.  
+  
+  
   
   
 ## Part II: Architecture  
