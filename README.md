@@ -43,6 +43,11 @@ The product's goal is BI, which provides data exploration and visualization, and
 * pandas:Python data structure and data analysis toolkit for data processing  
 * sklearn:Python machine learning package, dependent on numpy, scipy, and matplotlib  
 
+      from flask import Flask, request, make_response, redirect, url_for, jsonify
+      from ml.classification import getClassifierByName, getClassifierNames
+      from ml.regression import getRegressionByName, getRegressionModels
+      from ml.cluster import getClusterByName, getClusterModels
+
 ### 3.Development tools
 * nodejs:Server JavaScript environment  
 * babel:Javascript compiler that supports transforming code into browser executable code  
@@ -60,26 +65,162 @@ The product's goal is BI, which provides data exploration and visualization, and
 ![](ResaultPic/data.png)
 
 ### 2.Visualization  
+![](ResaultPic/viz1.png)  
+  
 * There are 6 types of visual graphics that can be selected: line chart, bar chart, pie chart, tree chart, scatter chart, area chart  
 * Quickly switch to data view, line chart, bar chart, stacked chart, tile chart  
 * Can dynamically get data points  
 * Store and restore the visualized result graph    
-  
-  
-  
-![](ResaultPic/viz1.png)
-![](ResaultPic/viz2.png)
-![](ResaultPic/viz3.png)
+
+![](ResaultPic/viz2.png)  
+
+###  line chart  
+    define(["viz/xc1ymn"], function(Base) {
+        var me = new Base();
+        me.meta.name = "line";
+        me.meta.chartName = "line";
+        return me;
+    });
+    
+###  bar chart  
+    define(["viz/xc1ymn"], function(Base) {
+        var me = new Base();
+        me.meta.name = "bar";
+        me.meta.chartName = "bar";
+        return me;
+    });
+
+###  pie chart  
+    define(["viz/c1m1"], function(Base) {
+        var me = new Base();
+        me.option.toolbox = {
+            show: true,
+            feature: {
+                dataView: {
+                    show: true,
+                    readOnly: false
+                },
+                magicType: {
+                    show: true,
+                    type: ['pie', 'funnel'],
+                    option: {
+                        funnel: {
+                            x: '25%',
+                            width: '50%',
+                            funnelAlign: 'left',
+                            max: 1548
+                        }
+                    }
+                },
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        };
+
+        me.meta.name = "pie";
+        me.meta.chartName = "pie";
+
+        me.appendOption = function(option) {
+            option.radius = '55%';
+            option.center = ['50%', '60%'];
+        }
+        return me;
+    });
+
+
+###  tree chart  
+    define(["viz/c1m1"], function(Base) {
+        var me = new Base();
+        me.meta.name = "treemap";
+        me.meta.chartName = "treemap";
+
+        me.option.toolbox = {
+            show: true,
+            feature: {
+                dataView: {
+                    show: true,
+                    readOnly: false
+                },
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        };
+
+        me.appendOption = function(option) {
+            option.itemStyle = {
+                normal: {
+                    label: {
+                        show: true,
+                        formatter: "{b}"
+                    },
+                    borderWidth: 1
+                },
+                emphasis: {
+                    label: {
+                        show: true
+                    }
+                }
+            };
+        }
+        return me;
+    });
+
+###  scatter chart  
+    define(["viz/xm1ym1cc1"], function(Base) {
+        var me = new Base();
+        me.meta.name = "scatter";
+        me.meta.chartName = "scatter";
+        return me;
+    });
+
+###  area chart   
+    define(["viz/xc1ymn"], function(Base) {
+        var me = new Base();
+        me.meta.name = "area";
+        me.meta.chartName = "line";
+        me.appendOption = function(option) {
+            option.itemStyle = {
+                normal: {
+                    areaStyle: {
+                        type: 'default'
+                    }
+                }
+            };
+        }
+        return me;
+    });
+
 
 ### 3. Machine learning  
+### 1) Classification model  
   
     class Classifier(BaseModel):
+
+        def __init__(self):
+            BaseModel.__init__(self)
+            self._label = None
+            self._features = None
 
         # train the model with given data set
         def train(self, data):
             self._features = data["features"]
             self._label = data["label"]
             self._model.fit(self._features, self._label)
+
+        # train the model with given data set
+        def getParameterDef(self):
+            pass
+
+        def setParameter(self, parameter):
+            pass
 
         # predict the model with given dataset
         def predict(self, data):
@@ -137,7 +278,7 @@ The product's goal is BI, which provides data exploration and visualization, and
             return result
 
 
-### 1) Classification model  
+
 ### Classification models have KNN, Bayes, SVM  
   
   
@@ -183,7 +324,7 @@ The product's goal is BI, which provides data exploration and visualization, and
 
 
 ###  2) Clustering model  
-###  The clustering model has KMeans    
+ 
     class Cluster(BaseModel):
 
         def __init__(self):
@@ -258,8 +399,8 @@ The product's goal is BI, which provides data exploration and visualization, and
                     result["predict"].append(record)
 
             return result
-  
-  
+
+###  The clustering model has KMeans     
 ![](ResaultPic/ml-CLU.png)
   
 ###  KMeans  
@@ -284,7 +425,7 @@ The product's goal is BI, which provides data exploration and visualization, and
 
 
 ###  3) Regression model  
-###  Regression models have linear regression and logistic regression  
+
     class Regression(BaseModel):
 
         def __init__(self):
@@ -348,7 +489,7 @@ The product's goal is BI, which provides data exploration and visualization, and
             return result
 
   
-  
+###  Regression models have linear regression and logistic regression  
 ![](ResaultPic/ml-REG.png)  
   
   
