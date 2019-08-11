@@ -76,6 +76,8 @@ The product's goal is BI, which provides data exploration and visualization, and
         return me;
     });
     
+![](ResaultPic/viz-line.png)   
+
 ###  bar chart  
     define(["viz/xc1ymn"], function(Base) {
         var me = new Base();
@@ -83,6 +85,8 @@ The product's goal is BI, which provides data exploration and visualization, and
         me.meta.chartName = "bar";
         return me;
     });
+
+![](ResaultPic/viz-bar.png)   
 
 ###  pie chart  
     define(["viz/c1m1"], function(Base) {
@@ -175,6 +179,8 @@ The product's goal is BI, which provides data exploration and visualization, and
         return me;
     });
 
+![](ResaultPic/viz-scatter.png)   
+
 ###  area chart   
     define(["viz/xc1ymn"], function(Base) {
         var me = new Base();
@@ -192,6 +198,7 @@ The product's goal is BI, which provides data exploration and visualization, and
         return me;
     });
 
+![](ResaultPic/viz-area.png)   
 
 ### 3. Machine learning  
 ### 1) Classification model  
