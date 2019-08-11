@@ -72,11 +72,71 @@ The product's goal is BI, which provides data exploration and visualization, and
 ![](ResaultPic/viz3.png)
 
 ### 3. Machine learning  
+  
+    class Classifier(BaseModel):
 
-![](ResaultPic/ml.png)  
-  
-  
-  
+        # train the model with given data set
+        def train(self, data):
+            self._features = data["features"]
+            self._label = data["label"]
+            self._model.fit(self._features, self._label)
+
+        # predict the model with given dataset
+        def predict(self, data):
+            return self._model.predict(data)
+
+        def predictViz(self, scale):
+            # Predict Viz only available for two dimensional dataset
+            if len(self._features[0]) != 2:
+                return None
+
+            result = dict()
+            result["predict"] = list()
+            result["data"] = list()
+
+            # TODO leverage pandas to do this?
+            range = dict()
+            range["xmin"] = self._features[0][0]
+            range["xmax"] = self._features[0][0]
+
+            range["ymin"] = self._features[0][1]
+            range["ymax"] = self._features[0][1]
+
+            for item in self._features:
+                if item[0] > range["xmax"]:
+                    range["xmax"] = item[0]
+                if item[0] < range["xmin"]:
+                    range["xmin"] = item[0]
+                if item[1] > range["ymax"]:
+                    range["ymax"] = item[1]
+                if item[1] < range["ymin"]:
+                    range["ymin"] = item[1]
+
+            xstep = (float(range["xmax"]) - float(range["xmin"])) / scale
+            ystep = (float(range["ymax"]) - float(range["ymin"])) / scale
+
+            for x in xrange(0, scale):
+                dx = range["xmin"] + x * xstep
+                dy = range["ymin"]
+                for y in xrange(0, scale):
+                    dy = dy + ystep
+                    onePredict = self.predict([[dx, dy]])
+                    record = dict()
+                    record["x"] = dx
+                    record["y"] = dy
+                    record["label"] = onePredict[0]
+                    result["predict"].append(record)
+
+            for i in xrange(0, len(self._label) - 1):
+                record = dict()
+                record["x"] = self._features[i][0]
+                record["y"] = self._features[i][1]
+                record["label"] = self._label[i]
+                result["data"].append(record)
+
+            return result
+
+
 ### 1) Classification model  
 ### Classification models have KNN, Bayes, SVM  
   
@@ -84,7 +144,12 @@ The product's goal is BI, which provides data exploration and visualization, and
   
 ![](ResaultPic/ml-CLS.png)
 ### KNN  
-  
+    class KNNClassifier(Classifier):
+
+      def __init__(self):
+          Classifier.__init__(self)
+          self._name = "KNN"
+          self._model = KNeighborsClassifier(n_neighbors=3)
   
   
 ![](ResaultPic/ml-KNN-viz.png)
@@ -92,7 +157,12 @@ The product's goal is BI, which provides data exploration and visualization, and
   
   
 ###  Bayes  
-  
+    class NBayesClassifier(Classifier):
+
+      def __init__(self):
+          Classifier.__init__(self)
+          self._name = "Bayes"
+          self._model = GaussianNB()
   
   
 ![](ResaultPic/ml-Bayes-viz.png)
@@ -100,7 +170,12 @@ The product's goal is BI, which provides data exploration and visualization, and
   
   
 ###  SVM  
-  
+    class SVMClassifier(Classifier):
+
+      def __init__(self):
+          Classifier.__init__(self)
+          self._name = "SVM"
+          self._model = svm.SVC()
   
   
 ![](ResaultPic/ml-SVM-viz.png)
@@ -109,22 +184,169 @@ The product's goal is BI, which provides data exploration and visualization, and
 
 ###  2) Clustering model  
 ###  The clustering model has KMeans    
-  
+    class Cluster(BaseModel):
+
+        def __init__(self):
+            BaseModel.__init__(self)
+            self._features = None
+
+        # train the model with given data set
+        def train(self, data):
+            self._features = data["train"]
+            self._model.fit(self._features)
+
+        # train the model with given data set
+        def getParameterDef(self):
+            pass
+
+        def setParameter(self, parameter):
+            pass
+
+        # predict the model with given dataset
+        def predict(self, data):
+            return self._model.predict(data)
+
+        def predictViz(self, scale):
+            # Predict Viz only available for one dimensional dataset
+            if len(self._features[0]) < 2:
+                return None
+
+            result = dict()
+            result["predict"] = list()
+            result["data"] = list()
+
+            predict_train = self.predict(self._features)
+
+            for i in xrange(0, len(self._features)):
+                item = dict()
+                item["x"] = self._features[i][0]
+                item["y"] = self._features[i][1]
+                item["label"] = predict_train[i]
+                result["data"].append(item)
+
+            # TODO leverage pandas to do this?
+            range = dict()
+            range["xmin"] = self._features[0][0]
+            range["xmax"] = self._features[0][0]
+
+            range["ymin"] = self._features[0][1]
+            range["ymax"] = self._features[0][1]
+
+            for item in self._features:
+                if item[0] > range["xmax"]:
+                    range["xmax"] = item[0]
+                if item[0] < range["xmin"]:
+                    range["xmin"] = item[0]
+                if item[1] > range["ymax"]:
+                    range["ymax"] = item[1]
+                if item[1] < range["ymin"]:
+                    range["ymin"] = item[1]
+
+            xstep = (float(range["xmax"]) - float(range["xmin"])) / scale
+            ystep = (float(range["ymax"]) - float(range["ymin"])) / scale
+
+            for x in xrange(0, scale):
+                dx = range["xmin"] + x * xstep
+                dy = range["ymin"]
+                for y in xrange(0, scale):
+                    dy = dy + ystep
+                    onePredict = self.predict([[dx, dy]])
+                    record = dict()
+                    record["x"] = dx
+                    record["y"] = dy
+                    record["label"] = onePredict[0]
+                    result["predict"].append(record)
+
+            return result
   
   
 ![](ResaultPic/ml-CLU.png)
   
 ###  KMeans  
-  
-  
-  
-![](ResaultPic/ml-KMeans-viz.png)
-![](ResaultPic/ml-KMeans-pre.png)
+
+    class KMeansCluster(Cluster):
+
+        def __init__(self):
+            Cluster.__init__(self)
+            self._name = "KMeans"
+            self._model = KMeans(n_clusters=3)
+
+        # train the model with given data set
+        def getParameterDef(self):
+            pass
+
+        def setParameter(self, parameter):
+            pass
+
+
+    ![](ResaultPic/ml-KMeans-viz.png)
+    ![](ResaultPic/ml-KMeans-pre.png)
 
 
 ###  3) Regression model  
 ###  Regression models have linear regression and logistic regression  
-  
+    class Regression(BaseModel):
+
+        def __init__(self):
+            BaseModel.__init__(self)
+            self._features = None
+            self._target = None
+
+        # train the model with given data set
+        def train(self, data):
+            self._features = data["train"]
+            self._target = data["target"]
+            self._model.fit(self._features, self._target)
+
+        # train the model with given data set
+        def getParameterDef(self):
+            pass
+
+        def setParameter(self, parameter):
+            pass
+
+        # predict the model with given dataset
+        def predict(self, data):
+            return self._model.predict(data)
+
+        def predictViz(self, scale):
+            # Predict Viz only available for one dimensional dataset
+            if len(self._features[0]) != 1:
+                return None
+
+            result = dict()
+            result["predict"] = list()
+            result["data"] = list()
+
+            for i in xrange(0, len(self._features)):
+                item = dict()
+                item["x"] = self._features[i][0]
+                item["y"] = self._target[i]
+                result["data"].append(item)
+
+            range = dict()
+            range["xmin"] = self._features[0][0]
+            range["xmax"] = self._features[0][0]
+
+            for item in self._features:
+                if item[0] > range["xmax"]:
+                    range["xmax"] = item[0]
+                if item[0] < range["xmin"]:
+                    range["xmin"] = item[0]
+
+            xstep = (float(range["xmax"]) - float(range["xmin"])) / scale
+
+            for x in xrange(0, scale):
+                dx = range["xmin"] + x * xstep
+
+                onePredict = self.predict([[dx]])
+                record = dict()
+                record["x"] = dx
+                record["y"] = onePredict[0]
+                result["predict"].append(record)
+
+            return result
+
   
   
 ![](ResaultPic/ml-REG.png)  
@@ -133,12 +355,29 @@ The product's goal is BI, which provides data exploration and visualization, and
   
 ###  linear 
   
+    class LinearRegression(Regression):
+
+        def __init__(self):
+            Regression.__init__(self)
+            self._name = "Linear"
+            self._model = linear_model.LinearRegression()
+        
 ![](ResaultPic/ml-linear-viz.png)
 ![](ResaultPic/ml-linear-pre.png)  
   
   
   
 ###  logistic 
+  
+    class LogisticRegression(Regression):
+
+        def __init__(self):
+            Regression.__init__(self)
+            self._name = "Logistic"
+            self._model = linear_model.LogisticRegression(C=1e5)
+
+        def predict_proba(self, data):
+            return self._model.predict_proba(data)
 
 ![](ResaultPic/ml-logistic-viz.png)
 ![](ResaultPic/ml-logistic-pre.png)
