@@ -66,12 +66,6 @@ The product's goal is BI, which provides data exploration and visualization, and
 
 ### 2.Visualization  
 ![](ResaultPic/viz1.png)  
-  
-* There are 6 types of visual graphics that can be selected: line chart, bar chart, pie chart, tree chart, scatter chart, area chart  
-* Quickly switch to data view, line chart, bar chart, stacked chart, tile chart  
-* Can dynamically get data points  
-* Store and restore the visualized result graph    
-
 ![](ResaultPic/viz2.png)  
 
 ###  line chart  
