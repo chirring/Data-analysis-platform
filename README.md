@@ -128,7 +128,7 @@ The product's goal is BI, which provides data exploration and visualization, and
         }
         return me;
     });
-
+![](ResaultPic/viz-pie.png) 
 
 ###  tree chart  
     define(["viz/c1m1"], function(Base) {
@@ -169,7 +169,9 @@ The product's goal is BI, which provides data exploration and visualization, and
             };
         }
         return me;
-    });
+    });  
+    
+ ![](ResaultPic/viz-tree.png) 
 
 ###  scatter chart  
     define(["viz/xm1ym1cc1"], function(Base) {
